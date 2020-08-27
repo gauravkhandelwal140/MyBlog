@@ -1,0 +1,12 @@
+<ifModule mod_rewrite.c>
+	RewriteEngine On
+	RewriteBase /cms/blog
+	RewriteRule ^(.+)/(css|img|js)/(.+)$ $2/$3 [L]
+	RewriteCond %{REQUEST_URI} index(.+)
+	RewriteRule ^(.+)$ index.php [L]
+	RewriteCond %{REQUEST_FILENAME} !-d
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteRule ^(category)/(.*)$ categories.php?url=$2 [QSA,L] 
+</ifModule>
+
+
